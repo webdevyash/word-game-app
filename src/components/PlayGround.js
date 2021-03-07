@@ -16,7 +16,7 @@ export default class PlayGround extends React.Component {
     }
 
     handleInput = (e) => {
-        // this.setState({value: 123}, () => {}) --> this is setState with callBack function
+
         this.setState({
             statement: 'Computer\'s Chance ...',
             word: e.target.value,
