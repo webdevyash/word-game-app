@@ -1,25 +1,26 @@
+import React from 'react'
 import logo from './logo.svg';
 import './App.css';
+import PlayGround from './components/PlayGround'
+class App extends React.Component {
+  state = {
+    gameStarted: false
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  startTheGame = () => {
+    this.setState({
+      gameStarted: true
+    })
+  }
+  render() {
+    return (
+      <div className="app-container">
+        <h1 className="game-name">Word Game</h1>
+        {!this.state.gameStarted && <button className='start-button' onClick={this.startTheGame}>Start</button>}
+        {this.state.gameStarted && <PlayGround />}
+      </div>
+    );
+  }
 }
 
 export default App;
